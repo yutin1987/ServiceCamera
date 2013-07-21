@@ -6,6 +6,8 @@
 //  Copyright (c) 2013年 Yutin. All rights reserved.
 //
 
+#import "GAI.h"
+#import "scModelDB.h"
 #import "scAppDelegate.h"
 
 @implementation scAppDelegate
@@ -13,6 +15,24 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    NSUserDefaults *user = [NSUserDefaults standardUserDefaults];
+    if(![user stringForKey:@"title"]){
+        [user setObject:@"Service Camera" forKey:@"title"];
+    }
+    [user synchronize];
+    
+    scModelDB *db = [[scModelDB alloc] init];
+    [db build];
+    
+    // Optional: automatically send uncaught exceptions to Google Analytics.
+    [GAI sharedInstance].trackUncaughtExceptions = YES;
+    // Optional: set Google Analytics dispatch interval to e.g. 20 seconds.
+    [GAI sharedInstance].dispatchInterval = 20;
+    // Optional: set debug to YES for extra debugging information.
+    [GAI sharedInstance].debug = YES;
+    // Create tracker instance.
+    id<GAITracker> tracker = [[GAI sharedInstance] trackerWithTrackingId:@"UA-39395085-2"];
+    
     return YES;
 }
 							

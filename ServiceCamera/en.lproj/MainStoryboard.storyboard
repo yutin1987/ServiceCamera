@@ -1,21 +1,110 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2519" systemVersion="12A206j" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="2">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12D78" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="2">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1856"/>
+        <deployment version="1552" identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
     <scenes>
-        <!--class Prefix:identifier View Controller-->
-        <scene sceneID="5">
+        <!--Sc Mood Controller-->
+        <scene sceneID="JlZ-Kk-k24">
             <objects>
-                <viewController id="2" customClass="scViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="3">
-                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                <viewController id="aE4-A3-DFv" customClass="scMoodController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="QEJ-Cz-BgZ">
+                        <rect key="frame" x="0.0" y="20" width="568" height="300"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    <connections>
+                        <segue destination="2" kind="modal" identifier="listView" id="kUr-HZ-D9f"/>
+                        <segue destination="rA8-yC-ffG" kind="modal" identifier="cameraView" id="723-RJ-FEB"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UIE-KY-WF4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-670" y="236"/>
+        </scene>
+        <!--Sc View Controller-->
+        <scene sceneID="5">
+            <objects>
+                <viewController storyboardIdentifier="" useStoryboardIdentifierAsRestorationIdentifier="YES" id="2" customClass="scViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="3">
+                        <rect key="frame" x="0.0" y="20" width="568" height="300"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="8xR-Ai-sJj"/>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    <connections>
+                        <segue destination="rA8-yC-ffG" kind="modal" identifier="cameraView" id="tyk-UR-ocT"/>
+                        <segue destination="VEy-d8-FSb" kind="modal" identifier="progressView" id="F5b-Lu-PQW"/>
+                        <segue destination="qd7-ne-h9B" kind="modal" identifier="printView" id="mRz-Gl-KgQ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="-697" y="653"/>
+        </scene>
+        <!--Sc Print Controller-->
+        <scene sceneID="9ah-Ml-erT">
+            <objects>
+                <viewController id="qd7-ne-h9B" customClass="scPrintController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5dA-BT-lWS">
+                        <rect key="frame" x="0.0" y="20" width="568" height="300"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    </view>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    <connections>
+                        <segue destination="2" kind="modal" identifier="listView" id="dQi-Lo-3F6"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="a7k-7C-wVi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1006" y="1279"/>
+        </scene>
+        <!--Sc Camera Controller-->
+        <scene sceneID="YZP-ZE-VWd">
+            <objects>
+                <viewController id="rA8-yC-ffG" customClass="scCameraController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Uts-w6-Jnh">
+                        <rect key="frame" x="0.0" y="20" width="568" height="300"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="DSY-h5-1s4"/>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    <connections>
+                        <segue destination="aE4-A3-DFv" kind="modal" identifier="moodView" id="6T4-uK-aeJ"/>
+                        <segue destination="2" kind="modal" identifier="listView" id="rc9-Vw-19Q"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iAi-wY-QBB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="36" y="254"/>
+        </scene>
+        <!--Sc Progress Controller-->
+        <scene sceneID="9Cf-m6-urP">
+            <objects>
+                <viewController id="VEy-d8-FSb" customClass="scProgressController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="m3k-KJ-ESB">
+                        <rect key="frame" x="0.0" y="20" width="568" height="300"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    </view>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    <connections>
+                        <segue destination="2" kind="modal" identifier="listView" id="T0R-VB-Sd7"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lfT-fn-Eg9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-153" y="1313"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
@@ -23,4 +112,8 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="tyk-UR-ocT"/>
+        <segue reference="T0R-VB-Sd7"/>
+    </inferredMetricsTieBreakers>
 </document>
