@@ -13,7 +13,10 @@
 		76C568C2184AEEDC0021593A /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 7626C3C2184AEA3400B3D3A6 /* FMDatabase.m */; };
 		76C568C3184AEEE70021593A /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 7626C3C8184AEA3400B3D3A6 /* FMDatabaseQueue.m */; };
 		76C568C7184B10820021593A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 76C568C6184B10820021593A /* Images.xcassets */; };
-		76C568C9184B10F20021593A /* artwork-source.png in Resources */ = {isa = PBXBuildFile; fileRef = 76C568C8184B10F20021593A /* artwork-source.png */; };
+		76C568CC184B127C0021593A /* Icon-29.png in Resources */ = {isa = PBXBuildFile; fileRef = 76C568CA184B127C0021593A /* Icon-29.png */; };
+		76C568CD184B127C0021593A /* Icon-58.png in Resources */ = {isa = PBXBuildFile; fileRef = 76C568CB184B127C0021593A /* Icon-58.png */; };
+		76C568D0184B12D80021593A /* Icon-80.png in Resources */ = {isa = PBXBuildFile; fileRef = 76C568CE184B12D80021593A /* Icon-80.png */; };
+		76C568D1184B12D80021593A /* Icon-120.png in Resources */ = {isa = PBXBuildFile; fileRef = 76C568CF184B12D80021593A /* Icon-120.png */; };
 		D02DD66A170CC868003D899F /* scPrintController.m in Sources */ = {isa = PBXBuildFile; fileRef = D02DD669170CC868003D899F /* scPrintController.m */; };
 		D02DD67D1711D874003D899F /* btn_delete.png in Resources */ = {isa = PBXBuildFile; fileRef = D02DD67A1711D874003D899F /* btn_delete.png */; };
 		D02DD67E1711D874003D899F /* btn_ok.png in Resources */ = {isa = PBXBuildFile; fileRef = D02DD67B1711D874003D899F /* btn_ok.png */; };
@@ -98,7 +101,10 @@
 		7626C3CA184AEA3400B3D3A6 /* FMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMResultSet.h; sourceTree = "<group>"; };
 		7626C3CB184AEA3400B3D3A6 /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMResultSet.m; sourceTree = "<group>"; };
 		76C568C6184B10820021593A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		76C568C8184B10F20021593A /* artwork-source.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "artwork-source.png"; sourceTree = "<group>"; };
+		76C568CA184B127C0021593A /* Icon-29.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-29.png"; sourceTree = "<group>"; };
+		76C568CB184B127C0021593A /* Icon-58.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-58.png"; sourceTree = "<group>"; };
+		76C568CE184B12D80021593A /* Icon-80.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-80.png"; sourceTree = "<group>"; };
+		76C568CF184B12D80021593A /* Icon-120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-120.png"; sourceTree = "<group>"; };
 		D02DD668170CC868003D899F /* scPrintController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = scPrintController.h; sourceTree = "<group>"; };
 		D02DD669170CC868003D899F /* scPrintController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = scPrintController.m; sourceTree = "<group>"; };
 		D02DD67A1711D874003D899F /* btn_delete.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_delete.png; sourceTree = "<group>"; };
@@ -304,8 +310,11 @@
 		D0863E3916D0AB5800D7170B = {
 			isa = PBXGroup;
 			children = (
+				76C568CE184B12D80021593A /* Icon-80.png */,
+				76C568CF184B12D80021593A /* Icon-120.png */,
+				76C568CA184B127C0021593A /* Icon-29.png */,
+				76C568CB184B127C0021593A /* Icon-58.png */,
 				D062C21216EA290200017597 /* 57x57.png */,
-				76C568C8184B10F20021593A /* artwork-source.png */,
 				D0DD200A16DB00180061E3F5 /* 114x114.png */,
 				D0DD202616DF267B0061E3F5 /* libsqlite3.dylib */,
 				7626C3C0184AEA3400B3D3A6 /* FMDB */,
@@ -520,6 +529,7 @@
 				D062C1D316E622E100017597 /* btn_list.png in Resources */,
 				D062C1D616E622E100017597 /* btn_output.png in Resources */,
 				D062C1D816E622E100017597 /* camera_bar.png in Resources */,
+				76C568D0184B12D80021593A /* Icon-80.png in Resources */,
 				D062C1E116E624CD00017597 /* mood_1_over.png in Resources */,
 				D062C1E216E624CD00017597 /* mood_2_over.png in Resources */,
 				D062C1E316E624CD00017597 /* mood_3_over.png in Resources */,
@@ -540,12 +550,13 @@
 				D02EBD4B16F8D9B90009ECD8 /* btn_yes.png in Resources */,
 				D0777AA317087D740055C46D /* btn_pen.png in Resources */,
 				D0777AA51709248B0055C46D /* btn_print.png in Resources */,
+				76C568CD184B127C0021593A /* Icon-58.png in Resources */,
 				D0777AA71709D4A10055C46D /* list_note.png in Resources */,
 				D0777AB7170BB5460055C46D /* print_bg.png in Resources */,
 				D02DD67D1711D874003D899F /* btn_delete.png in Resources */,
 				D02DD67E1711D874003D899F /* btn_ok.png in Resources */,
+				76C568CC184B127C0021593A /* Icon-29.png in Resources */,
 				D02DD6821711DA56003D899F /* describe_left.png in Resources */,
-				76C568C9184B10F20021593A /* artwork-source.png in Resources */,
 				D02DD6831711DA56003D899F /* describe_mid.png in Resources */,
 				D02DD6841711DA56003D899F /* describe_right.png in Resources */,
 				76C568C7184B10820021593A /* Images.xcassets in Resources */,
@@ -553,6 +564,7 @@
 				D02DD6891711DA62003D899F /* text_mid.png in Resources */,
 				D02DD68A1711DA62003D899F /* text_right.png in Resources */,
 				D02DD68C1711DEA9003D899F /* btn_back.png in Resources */,
+				76C568D1184B12D80021593A /* Icon-120.png in Resources */,
 				D0D5B4B6171878D5007EF078 /* progress_track.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -664,7 +676,6 @@
 		D0863E6616D0AB5900D7170B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer: YU-TING LIU (NX27ETP56M)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -687,7 +698,6 @@
 		D0863E6716D0AB5900D7170B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer: YU-TING LIU (NX27ETP56M)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
