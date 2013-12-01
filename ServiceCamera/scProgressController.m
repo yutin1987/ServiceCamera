@@ -31,6 +31,9 @@ NSArray *temp;
 UIImageView *player;
 UIProgressView *progress;
 
+- (NSUInteger)supportedInterfaceOrientations { return UIInterfaceOrientationMaskLandscape; }
+- (BOOL)shouldAutorotate { return YES; }
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];

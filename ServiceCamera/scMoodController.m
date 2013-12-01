@@ -20,6 +20,9 @@
 
 @synthesize image;
 
+- (NSUInteger)supportedInterfaceOrientations { return UIInterfaceOrientationMaskLandscape; }
+- (BOOL)shouldAutorotate { return YES; }
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];

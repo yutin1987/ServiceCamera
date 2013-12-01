@@ -9,6 +9,7 @@
 #import "scCameraController.h"
 #import "configs.h"
 #import "scMoodController.h"
+#import "scModelImage.h"
 
 @interface scCameraController ()
 
@@ -85,6 +86,24 @@ id<GAITracker> tracker;
     [controlView addSubview:cancel];
     
     [self setCameraOverlayView:controlView];
+    
+    scModelImage *images = [[scModelImage alloc]init];
+    switch ([[images count] intValue]) {
+        case 24: [self showCountWarning:@"There is only one left"]; break;
+        case 23: [self showCountWarning:@"There are two pictures left"]; break;
+        case 22: [self showCountWarning:@"There are three pictures left"]; break;
+    }
+    
+}
+
+- (void) showCountWarning:(NSString*)message
+{
+    UIAlertView *prompt = [[UIAlertView alloc] initWithTitle:message
+                                                     message:nil
+                                                    delegate:nil
+                                           cancelButtonTitle:@"OK"
+                                           otherButtonTitles:nil, nil];
+    [prompt show];
 }
 
 -(void)viewDidDisappear:(BOOL)animated

@@ -21,6 +21,8 @@
     }
     [user synchronize];
     
+    application.statusBarHidden = YES;
+    
     scModelDB *db = [[scModelDB alloc] init];
     [db build];
     

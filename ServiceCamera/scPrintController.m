@@ -20,6 +20,9 @@
 
 UIProgressView *progress;
 
+- (NSUInteger)supportedInterfaceOrientations { return UIInterfaceOrientationMaskLandscape; }
+- (BOOL)shouldAutorotate { return YES; }
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -64,7 +67,7 @@ UIProgressView *progress;
 
 - (void)onDone
 {
-    UIAlertView *prompt = [[UIAlertView alloc] initWithTitle:@"Donw"
+    UIAlertView *prompt = [[UIAlertView alloc] initWithTitle:@"Done!"
                                                      message:nil
                                                     delegate:self
                                            cancelButtonTitle:nil
@@ -183,6 +186,20 @@ UIProgressView *progress;
     [title setBackgroundColor:[UIColor clearColor]];
     [title setTextColor:[UIColor whiteColor]];
     [title setNumberOfLines:2];
+    
+    
+    NSString *describe = [user stringForKey:@"describe"];
+    if (describe && describe.length > 0) {
+        UILabel *noteText = [[UILabel alloc] initWithFrame:CGRectMake(SCThumbTextPadding*SCPrintScale, thumbSize.height,
+                                                                      thumbSize.width - SCThumbTextPadding*SCPrintScale*2, thumbSize.height * 2/3 * 2/3)];
+        [noteText setText:describe];
+        [noteText setFont:[UIFont fontWithName:SCFont size:SCThumbNote*SCPrintScale*2/3]];
+        [noteText setBackgroundColor:[UIColor clearColor]];
+        [noteText setTextColor:[UIColor blackColor]];
+        [noteText setNumberOfLines:3];
+        [picView addSubview:noteText];
+    }
+    
     [picView addSubview:title];
     
     UILabel *count = [[UILabel alloc] initWithFrame:CGRectMake(thumbSize.width*1/2, thumbSize.height*3/5, thumbSize.width*1/2, SCThumbTitle * SCPrintScale * 1.2)];

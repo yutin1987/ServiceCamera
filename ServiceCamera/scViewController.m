@@ -19,7 +19,6 @@
 
 NSUserDefaults *user;
 
-UITextField *titleField;
 UILabel *titleLabel;
 UIScrollView *waterfallView;
 UIButton *btnActive;
@@ -39,6 +38,9 @@ typedef NS_ENUM(NSUInteger, AlertViewTag){
     AlertViewTagClear = 1,
     AlertViewTagDel = 2
 };
+
+- (NSUInteger)supportedInterfaceOrientations { return UIInterfaceOrientationMaskLandscape; }
+- (BOOL)shouldAutorotate { return YES; }
 
 - (void)viewDidLoad
 {
@@ -170,7 +172,7 @@ typedef NS_ENUM(NSUInteger, AlertViewTag){
         if (note && note.length > 0) {
             [btnNote setFrame:CGRectMake(0, SCThumbSize.height * 4/5, SCThumbSize.width, SCThumbSize.height)];
             [btnNote setImage:[UIImage imageNamed:@"list_note.png"] forState:UIControlStateNormal];
-            [picView insertSubview:btnNote belowSubview:imgView];
+            [picView insertSubview:btnNote atIndex:0];
             
             UILabel *noteText = [[UILabel alloc] initWithFrame:CGRectMake(SCThumbTextPadding, SCThumbSize.height,
                                                                           SCThumbSize.width - SCThumbTextPadding*2, SCThumbSize.height * 2/3)];
@@ -299,7 +301,7 @@ typedef NS_ENUM(NSUInteger, AlertViewTag){
     btnActive = btn;
     
     UIAlertView *prompt = [[UIAlertView alloc] initWithTitle:@"Delete"
-                                                     message:@"Delete this pictures?" // IMPORTANT
+                                                     message:@"Delete this picture?" // IMPORTANT
                                                     delegate:self
                                            cancelButtonTitle:@"NO"
                                            otherButtonTitles:@"YES", nil];
@@ -352,7 +354,7 @@ typedef NS_ENUM(NSUInteger, AlertViewTag){
     [describe setFont:[UIFont fontWithName:SCFont size:22]];
     [describe setText:[user objectForKey:@"describe"]];
     [describe setBackgroundColor:[UIColor clearColor]];
-    [describe setTextAlignment:NSTextAlignmentCenter];
+    [describe setTextAlignment:NSTextAlignmentLeft];
     [overView addSubview:describe];
     
     UIButton *ok = [[UIButton alloc] initWithFrame:CGRectMake(app.size.width - SCBtnSize.width - 5, 5, SCBtnSize.width, SCBtnSize.height)];
@@ -445,7 +447,7 @@ typedef NS_ENUM(NSUInteger, AlertViewTag){
     [user setObject:describe.text forKey:@"describe"];
     [user synchronize];
     
-    [titleField setText:title.text];
+    [titleLabel setText:title.text];
     
     [btn.superview removeFromSuperview];
     
