@@ -23,6 +23,9 @@ UIView *controlView;
 
 id<GAITracker> tracker;
 
+- (NSUInteger)supportedInterfaceOrientations { return UIInterfaceOrientationMaskPortrait; }
+- (BOOL)shouldAutorotate { return YES; }
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];

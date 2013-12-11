@@ -14,7 +14,7 @@ const static CGSize SCPicSize = {480, 320};
 // Output
 float const SCVideoTrans = 1.5;
 float const SCVideoStay = 3;
-float const SCVideoFrame = 30;
+float const SCVideoFrame = 60;
 
 // List
 const static CGSize SCThumbSize = {132, 133};

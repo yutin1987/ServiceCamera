@@ -386,7 +386,7 @@ UIProgressView *progress;
                 [adaptor appendPixelBuffer:buffer withPresentationTime:CMTimeMake(pos + (j+1), SCVideoFrame)];
                 CVBufferRelease(buffer);
                 
-                [self performSelectorOnMainThread:@selector(setVideoProgress:) withObject:[NSNumber numberWithFloat:itemPer + transPer * (((float)j+1) / (SCVideoTrans * SCVideoFrame))] waitUntilDone:NO];
+                [self performSelectorOnMainThread:@selector(setVideoProgress:) withObject:[NSNumber numberWithFloat:itemPer + transPer * (((float)j+1) / (SCVideoTrans * SCVideoFrame)) - 0.1] waitUntilDone:NO];
             }
         }
         
@@ -394,7 +394,8 @@ UIProgressView *progress;
     }
     
     //Finish the session:
-    //[writerInput markAsFinished];
+    [writerInput markAsFinished];
+    [self performSelectorOnMainThread:@selector(setVideoProgress:) withObject:[NSNumber numberWithFloat:0.90] waitUntilDone:NO];
     [videoWriter finishWritingWithCompletionHandler:^(){
         NSLog (@"finished writing");
         CVPixelBufferPoolRelease(adaptor.pixelBufferPool);
@@ -404,8 +405,6 @@ UIProgressView *progress;
         
         [self performSelectorOnMainThread:@selector(setVideoProgress:) withObject:[NSNumber numberWithFloat:1] waitUntilDone:NO];
         
-        [NSThread sleepForTimeInterval:0.02];
-        
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil
                                                         message:@"Done!"
                                                        delegate:self
@@ -414,6 +413,15 @@ UIProgressView *progress;
         [alert setTag:AlertDone];
         [alert show];
     }];
+    
+    do {
+        if (videoWriter.status == AVAssetWriterStatusFailed) {
+            NSLog (@"Writer, error: %@", videoWriter.error);
+        }else if (videoWriter.status == AVAssetWriterStatusWriting){
+            NSLog (@"Writer, writing: %@", videoWriter.error);
+        }
+    } while (videoWriter.status == AVAssetWriterStatusWriting);
+
 }
 
 - (CVPixelBufferRef) stayBuffer: (CGImageRef) image
@@ -436,7 +444,7 @@ UIProgressView *progress;
     
     CGContextRef context = CGBitmapContextCreate(pxdata, CGImageGetWidth(image),
                                                  CGImageGetHeight(image), 8, 4*CGImageGetWidth(image), rgbColorSpace,
-                                                 kCGImageAlphaNoneSkipFirst);
+                                                 kCGImageAlphaNoneSkipFirst | kCGBitmapByteOrderDefault);
     CGContextDrawImage(context, CGRectMake(0, 0, CGImageGetWidth(image), CGImageGetHeight(image)), image);
     CGColorSpaceRelease(rgbColorSpace);
     CGContextRelease(context);
@@ -462,11 +470,11 @@ UIProgressView *progress;
     CGColorSpaceRef rgbColorSpace = CGColorSpaceCreateDeviceRGB();
     
     CGContextRef context = CGBitmapContextCreate(pxdata, SCPicSize.width, SCPicSize.height,
-                                                 8, 4 * SCPicSize.width, rgbColorSpace, kCGImageAlphaNoneSkipFirst);
-    CGContextSetAlpha(context, percentage);
+                                                 8, 4 * SCPicSize.width, rgbColorSpace, kCGImageAlphaNoneSkipFirst | kCGBitmapByteOrderDefault);
+//    CGContextSetAlpha(context, percentage);
     CGContextDrawImage(context, CGRectMake(0, 0, SCPicSize.width, SCPicSize.height), to);
     
-    CGContextSetAlpha(context, 1 - percentage);
+//    CGContextSetAlpha(context, 1 - percentage);
     CGContextDrawImage(context, CGRectMake(0, 0, SCPicSize.width, SCPicSize.height), from);
     
     CGColorSpaceRelease(rgbColorSpace);
